@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build Step') {
+            steps {
+                // Build the application
+                echo "Cloning the  Repo"
+                git branch: 'main', 
+                    url: 'https://github.com/nare-keth/my-repo1.git'
+            }
+        }
+        stage('Test Step') {
+            steps {
+                // Run tests
+                echo "mvn test"
+            }
+        }
+        stage('Deploy Step') {
+            steps {
+                // Deploy the application
+                echo "deploy.sh"
+            }
+        }
+    }
+}
